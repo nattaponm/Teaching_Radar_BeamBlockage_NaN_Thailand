@@ -208,19 +208,19 @@ Standard refraction     : k = 4/3
 
 ดังนั้นหนึ่ง polar sweep เชิงเรขาคณิตมีขนาดประมาณ
 
-$$
+```math
 360\times480
-$$
+```
 
 gates
 
 และ maximum nominal range คือ
 
-$$
+```math
 480\times500\ \mathrm{m}
 =
 240\ \mathrm{km}
-$$
+```
 
 ---
 
@@ -230,9 +230,9 @@ $$
 
 SRTM source tiles อยู่ใน geographic coordinates:
 
-$$
+```math
 (\lambda,\phi)
-$$
+```
 
 หรือ longitude–latitude ในหน่วย degree
 
@@ -245,9 +245,9 @@ WGS 84 / UTM Zone 47N
 
 ใน UTM:
 
-$$
+```math
 (x,y)
-$$
+```
 
 มีหน่วย metre ทำให้สามารถคำนวณระยะและพื้นที่ได้โดยตรง
 
@@ -261,13 +261,13 @@ Raster ไม่ได้เป็นเพียง matrix ของค่า e
 
 ความสัมพันธ์พื้นฐานของ affine transformation เขียนได้เป็น
 
-$$
+```math
 x = A c + B r + C
-$$
+```
 
-$$
+```math
 y = D c + E r + F
-$$
+```
 
 เมื่อ
 
@@ -304,13 +304,13 @@ Terrain elevation
 
 ถ้ายังอยู่ใน latitude/longitude การคำนวณระยะและพื้นที่จะไม่สม่ำเสมอ จึงใช้ UTM Zone 47N เพื่อให้
 
-$$
+```math
 1\ \mathrm{grid\ cell}
 =
 1000\ \mathrm{m}
 \times
 1000\ \mathrm{m}
-$$
+```
 
 ใน DEM ที่ resample เป็น 1 km
 
@@ -322,11 +322,11 @@ $$
 
 แบบเรียนใช้ **maximum elevation** เป็นค่าเริ่มต้น:
 
-$$
+```math
 z_{1km}
 =
 \max(z_{\mathrm{native}})
-$$
+```
 
 เหตุผลคือ ridge แคบอาจเป็น terrain obstacle ที่สำคัญต่อ radar beam ถ้าใช้ mean หรือ bilinear ridge อาจถูก smooth และทำให้ประเมิน blockage ต่ำเกินจริง
 
@@ -353,13 +353,13 @@ radar feed altitude
 
 โดย
 
-$$
+```math
 h_0
 =
 z_{\mathrm{site}}
 +
 H_{\mathrm{antenna}}
-$$
+```
 
 เมื่อ
 
@@ -377,21 +377,21 @@ $$
 
 ภายใต้ standard-refraction approximation ใช้
 
-$$
+```math
 k=\frac{4}{3}
-$$
+```
 
 และ effective Earth radius คือ
 
-$$
+```math
 R_e^\ast
 =
 kR_e
-$$
+```
 
 beam-center altitude โดยประมาณเป็น
 
-$$
+```math
 h_b(r,\theta)
 =
 \sqrt{
@@ -403,7 +403,7 @@ r^2+
 kR_e
 +
 h_0
-$$
+```
 
 เมื่อ
 
@@ -429,7 +429,7 @@ elevation angle increases
 
 ถ้า beamwidth เท่ากับ $\beta$ โดยประมาณ half-power beam radius เป็น
 
-$$
+```math
 a(r)
 \approx
 r
@@ -437,7 +437,7 @@ r
 \left(
 \frac{\beta}{2}
 \right)
-$$
+```
 
 ดังนั้น beam กว้างขึ้นตามระยะทาง
 
@@ -451,11 +451,11 @@ $$
 
 กำหนด
 
-$$
+```math
 y
 =
 z_t-z_b
-$$
+```
 
 เมื่อ
 
@@ -465,7 +465,7 @@ $$
 
 สำหรับกรณีที่ terrain ตัดวงหน้าตัดของ beam บางส่วน PBB สามารถเขียนในรูป normalized circular-segment relation ได้เป็น
 
-$$
+```math
 PBB
 =
 \frac{1}{\pi}
@@ -485,27 +485,27 @@ PBB
 +
 \frac{\pi}{2}
 \right]
-$$
+```
 
 สำหรับ
 
-$$
+```math
 -a<y<a
-$$
+```
 
 และมีขอบเขต
 
-$$
+```math
 PBB=0
 \qquad
 \text{เมื่อ }y\le-a
-$$
+```
 
-$$
+```math
 PBB=1
 \qquad
 \text{เมื่อ }y\ge a
-$$
+```
 
 ดังนั้น
 
@@ -524,12 +524,12 @@ PBB บอกการบดบังที่ gate ปัจจุบัน แ
 
 จึงใช้ CBB:
 
-$$
+```math
 CBB(r_i)
 =
 \max_{j\le i}
 PBB(r_j)
-$$
+```
 
 หรือกล่าวได้ว่า CBB เป็น running maximum ของ blockage ตามแนว ray
 
@@ -570,7 +570,7 @@ polar gates ที่ระยะไกลครอบคลุมพื้น�
 
 พื้นที่ sector ระหว่าง $r_1$ และ $r_2$ คือ
 
-$$
+```math
 A
 =
 \frac{1}{2}
@@ -578,7 +578,7 @@ A
 r_2^2-r_1^2
 \right)
 \Delta\alpha
-$$
+```
 
 เมื่อ $\Delta\alpha$ อยู่ในหน่วย radian
 
@@ -594,7 +594,7 @@ $$
 
 เพื่อบอกว่าการบดบังเริ่มมีนัยสำคัญที่ระยะใด นิยาม
 
-$$
+```math
 D_{10}
 =
 \min
@@ -602,11 +602,11 @@ D_{10}
 r:
 CBB(r)\ge0.10
 \right\}
-$$
+```
 
 และ
 
-$$
+```math
 D_{50}
 =
 \min
@@ -614,7 +614,7 @@ D_{50}
 r:
 CBB(r)\ge0.50
 \right\}
-$$
+```
 
 ความหมาย:
 
@@ -632,7 +632,7 @@ No D50 within 240 km → ray ไม่ถึง severe-blockage threshold ภา
 
 ให้ชุด elevation angles เป็น
 
-$$
+```math
 E
 =
 \{
@@ -641,11 +641,11 @@ E
 1.5^\circ,
 2.0^\circ
 \}
-$$
+```
 
 Minimum Usable Elevation ที่ตำแหน่งหนึ่งนิยามเป็น
 
-$$
+```math
 MUE(x,y)
 =
 \min
@@ -653,7 +653,7 @@ MUE(x,y)
 \theta\in E:
 CBB_\theta(x,y)<0.10
 \right\}
-$$
+```
 
 ถ้าไม่มี elevation ใดผ่าน threshold ให้จัดเป็น
 
@@ -680,11 +680,11 @@ range = 100 km
 
 เพื่อเปรียบเทียบอย่างยุติธรรม Notebook 07 สร้าง common Cartesian grid และกำหนด
 
-$$
+```math
 D_{\mathrm{common}}
 =
 \bigcap_{i=1}^{n}D_i
-$$
+```
 
 เมื่อ $D_i$ คือพื้นที่ที่อยู่ภายใน radar range ของ site ที่ $i$
 
@@ -696,27 +696,27 @@ $$
 
 เมื่อ CBB ของสอง radar ถูก remap ลง common grid แล้ว สามารถคำนวณ
 
-$$
+```math
 \Delta CBB(x,y)
 =
 CBB_{\mathrm{PhuPhiang}}(x,y)
 -
 CBB_{\mathrm{Current}}(x,y)
-$$
+```
 
 ถ้า
 
-$$
+```math
 \Delta CBB<0
-$$
+```
 
 หมายถึง Phu Phiang มี terrain-induced blockage ต่ำกว่าที่ **ground cell เดียวกัน**
 
 ถ้า
 
-$$
+```math
 \Delta CBB>0
-$$
+```
 
 หมายถึง current site มี blockage ต่ำกว่า
 
@@ -1002,21 +1002,21 @@ Notebook 01 สอน GIS preprocessing ที่จำเป็นสำหร�
 
 source DEM:
 
-$$
+```math
 EPSG:4326
-$$
+```
 
 ถูกแปลงไปเป็น:
 
-$$
+```math
 EPSG:32647
-$$
+```
 
 และ resample เป็น:
 
-$$
+```math
 1000\times1000\ \mathrm{m}
-$$
+```
 
 ### Why use UTM?
 
@@ -1035,17 +1035,17 @@ area
 
 เพื่อรักษา ridge crests:
 
-$$
+```math
 z_{\mathrm{cell}}
 =
 \max(z_i)
-$$
+```
 
 แทนที่จะใช้
 
-$$
+```math
 \bar z
-$$
+```
 
 ซึ่งอาจลดความสูงของ ridge
 
@@ -1093,23 +1093,23 @@ Maps
 
 ผู้เรียนควรเข้าใจ:
 
-$$
+```math
 h_b(r,\theta)
-$$
+```
 
-$$
+```math
 a(r)
-$$
+```
 
-$$
+```math
 PBB
-$$
+```
 
 และ
 
-$$
+```math
 CBB
-$$
+```
 
 ### What to examine
 
@@ -1166,7 +1166,7 @@ Far field   : regional conservative DEM
 
 แนวคิดอย่างง่ายคือ
 
-$$
+```math
 \alpha_t
 =
 \tan^{-1}
@@ -1177,7 +1177,7 @@ z_t-z_0
 d
 }
 \right)
-$$
+```
 
 แต่การใช้งานจริงควรพิจารณา Earth curvature และ radar geometry ร่วมด้วย
 
@@ -1217,11 +1217,11 @@ elevation angles:
 
 รวม
 
-$$
+```math
 3\times4
 =
 12
-$$
+```
 
 selected-ray scenarios
 
@@ -1241,17 +1241,17 @@ How does blockage persist downstream?
 
 โดยประมาณ:
 
-$$
+```math
 z_{\mathrm{lower}}
 =
 z_b-a
-$$
+```
 
-$$
+```math
 z_{\mathrm{upper}}
 =
 z_b+a
-$$
+```
 
 เมื่อ $a$ คือ half-power beam radius
 
@@ -1271,17 +1271,17 @@ Notebook 05 ขยายจาก selected rays ไปสู่ azimuth ทั�
 
 ### D10 by azimuth
 
-$$
+```math
 D_{10}(\alpha)
-$$
+```
 
 บอกว่าทิศใด terrain เริ่มมีผลเร็ว
 
 ### D50 by azimuth
 
-$$
+```math
 D_{50}(\alpha)
-$$
+```
 
 บอกว่าทิศใด severe blockage เริ่มใกล้ radar
 
@@ -1369,35 +1369,35 @@ Notebook 07 จึงสร้าง **common Cartesian grid**
 
 หลัง remapping:
 
-$$
+```math
 CBB_A(x,y)
-$$
+```
 
 และ
 
-$$
+```math
 CBB_B(x,y)
-$$
+```
 
 อยู่บน ground cells เดียวกัน
 
 จึงเปรียบเทียบได้โดยตรง:
 
-$$
+```math
 \Delta CBB(x,y)
 =
 CBB_A(x,y)
 -
 CBB_B(x,y)
-$$
+```
 
 ### Visibility transition
 
 สำหรับ threshold
 
-$$
+```math
 CBB<0.10
-$$
+```
 
 หนึ่ง ground cell สามารถจัดเป็น:
 
@@ -1414,11 +1414,11 @@ Loss at Phu Phiang
 
 ถ้า radar ranges เป็น $D_1,D_2,\ldots,D_n$
 
-$$
+```math
 D_{\mathrm{common}}
 =
 D_1\cap D_2\cap\cdots\cap D_n
-$$
+```
 
 ดังนั้น boundary ของ common domain ไม่จำเป็นต้องเป็น circle
 
@@ -1656,9 +1656,9 @@ higher-resolution local DEM
 
 แบบเรียนใช้
 
-$$
+```math
 k=\frac{4}{3}
-$$
+```
 
 ซึ่งเป็น standard-refraction assumption
 
